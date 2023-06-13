@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "litematica-enderchest-materials",
+  "version": "${version}",
+  "name": "Litematica Enderchest Materials",
+  "description": "",
+  "authors": [
+    "Scubakay"
+  ],
+  "contact": {
+    "repo": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/litematica-enderchest-materials/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.scubakay.litematicaenderchestmaterials.LitematicaEnderchestMaterials"
+    ]
+  },
+  "mixins": [
+    "litematica-enderchest-materials.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "malilib": "~0.15",
+    "litematica": "~0.14",
+    "fabric-api": "*"
+  }
+}
