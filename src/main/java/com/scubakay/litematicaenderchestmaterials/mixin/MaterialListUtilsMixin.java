@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.List;
 
-@Mixin(targets = "fi/dy/masa/litematica/materials/MaterialListUtils")
+@Mixin(MaterialListUtils.class)
 public class MaterialListUtilsMixin {
     @Inject(method = "getMaterialList", at = @At(value = "INVOKE", target = "Lit/unimi/dsi/fastutil/objects/ObjectSet;iterator()Lit/unimi/dsi/fastutil/objects/ObjectIterator;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void addEnderchestItemCount(
