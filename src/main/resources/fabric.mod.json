@@ -10,7 +10,7 @@
   "contact": {
     "repo": ""
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/litematica-enderchest-materials/icon.png",
   "environment": "client",
   "entrypoints": {
