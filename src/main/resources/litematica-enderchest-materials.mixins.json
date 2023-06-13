@@ -8,7 +8,8 @@
   ],
   "client": [
     "MaterialListUtilsMixin",
-    "EnderChestInventoryMixin"
+    "EnderChestBlockMixin",
+    "ClientPlayNetworkHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
