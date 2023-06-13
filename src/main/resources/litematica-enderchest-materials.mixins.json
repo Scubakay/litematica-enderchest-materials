@@ -9,7 +9,9 @@
   "client": [
     "MaterialListUtilsMixin",
     "EnderChestBlockMixin",
-    "ClientPlayNetworkHandlerMixin"
+    "ClientPlayNetworkHandlerMixin",
+    "ScreenMixin",
+    "ClientPlayerInteractionManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

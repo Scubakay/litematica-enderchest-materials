@@ -1,6 +1,6 @@
 package com.scubakay.litematicaenderchestmaterials.mixin;
 
-import com.scubakay.litematicaenderchestmaterials.EnderchestCache;
+import com.scubakay.litematicaenderchestmaterials.EnderChestCache;
 import fi.dy.masa.litematica.materials.MaterialCache;
 import fi.dy.masa.litematica.materials.MaterialListEntry;
 import fi.dy.masa.litematica.materials.MaterialListUtils;
@@ -33,7 +33,7 @@ public class MaterialListUtilsMixin {
             Object2IntOpenHashMap<ItemType> itemTypesMismatch,
             Object2IntOpenHashMap<ItemType> playerInvItems
     ) {
-        Object2IntOpenHashMap<ItemType> enderChestItems = EnderchestCache.GetEnderChestItems();
+        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.GetEnderChestItems();
         enderChestItems.forEach((key, value) ->
             playerInvItems.merge(key, value, Integer::sum
         ));
@@ -46,7 +46,7 @@ public class MaterialListUtilsMixin {
             CallbackInfo ci,
             Object2IntOpenHashMap<ItemType> playerInvItems
     ) {
-        Object2IntOpenHashMap<ItemType> enderChestItems = EnderchestCache.GetEnderChestItems();
+        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.GetEnderChestItems();
         enderChestItems.forEach((key, value) ->
             playerInvItems.merge(key, value, Integer::sum
         ));

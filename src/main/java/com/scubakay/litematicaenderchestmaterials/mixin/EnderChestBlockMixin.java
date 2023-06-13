@@ -1,6 +1,6 @@
 package com.scubakay.litematicaenderchestmaterials.mixin;
 
-import com.scubakay.litematicaenderchestmaterials.EnderchestCache;
+import com.scubakay.litematicaenderchestmaterials.EnderChestCache;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.EnderChestBlock;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,6 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EnderChestBlockMixin {
     @Inject(method = "onUse", at = @At(value = "HEAD"))
     public void lem_onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        EnderchestCache.openEnderChest();
+        EnderChestCache.openEnderChest();
     }
 }

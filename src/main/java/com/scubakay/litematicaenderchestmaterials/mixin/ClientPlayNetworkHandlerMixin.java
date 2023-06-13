@@ -1,6 +1,6 @@
 package com.scubakay.litematicaenderchestmaterials.mixin;
 
-import com.scubakay.litematicaenderchestmaterials.EnderchestCache;
+import com.scubakay.litematicaenderchestmaterials.EnderChestCache;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.packet.s2c.play.InventoryS2CPacket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ClientPlayNetworkHandlerMixin {
     @Inject(method = "onInventory", at = @At(value = "RETURN"))
     public void onInventory(InventoryS2CPacket packet, CallbackInfo ci) {
-        EnderchestCache.handleInventoryS2CPacket(packet);
+        EnderChestCache.handleInventoryS2CPacket(packet);
     }
 }

@@ -5,22 +5,39 @@ import fi.dy.masa.malilib.util.InventoryUtils;
 import fi.dy.masa.malilib.util.ItemType;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.block.ShulkerBoxBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.InventoryS2CPacket;
+import net.minecraft.screen.ScreenHandler;
 
 import java.util.List;
 
-public class EnderchestCache {
+public class EnderChestCache {
     private static Object2IntOpenHashMap<ItemType> enderChestItems;
 
+    private static boolean enderChestOpen = false;
     private static boolean enderChestOpened = false;
 
+    /**
+     * Update the material list the first time the ender chest is opened
+     */
     public static void handleInventoryS2CPacket(InventoryS2CPacket packet) {
-        if (enderChestOpened) {
-            List<ItemStack> enderChestItemStacks = packet.getContents().subList(0, 26);
+        if (enderChestOpen && !enderChestOpened) {
+            List<ItemStack> enderChestItemStacks = packet.getContents().subList(0, 27);
             enderChestItems = mapItemStacks(enderChestItemStacks);
-            enderChestOpened = false;
+            enderChestOpened = true;
+        }
+    }
+
+    /**
+     * Update the material list every time a stack is moved within the ender chest
+     */
+    public static void updateSlots(PlayerEntity player) {
+        if (enderChestOpen) {
+            ScreenHandler screenHandler = player.currentScreenHandler;
+            List<ItemStack> enderChestItemStacks = screenHandler.getStacks().subList(0, 27);
+            enderChestItems = mapItemStacks(enderChestItemStacks);
         }
     }
 
@@ -29,9 +46,18 @@ public class EnderchestCache {
     }
 
     public static void openEnderChest() {
-        enderChestOpened = true;
+        enderChestOpen = true;
     }
 
+    public static void closeEnderChest() {
+        if (enderChestOpen) {
+            enderChestOpen = false;
+        }
+    }
+
+    /**
+     * Map the ender chest stacks to something useful for Litematica
+     */
     private static Object2IntOpenHashMap<ItemType> mapItemStacks(List<ItemStack> stacks) {
         Object2IntOpenHashMap<ItemType> map = new Object2IntOpenHashMap<>();
         stacks.forEach((stack) -> {
