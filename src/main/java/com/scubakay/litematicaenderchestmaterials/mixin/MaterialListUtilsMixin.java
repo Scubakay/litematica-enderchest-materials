@@ -33,10 +33,12 @@ public class MaterialListUtilsMixin {
             Object2IntOpenHashMap<ItemType> itemTypesMismatch,
             Object2IntOpenHashMap<ItemType> playerInvItems
     ) {
-        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.GetEnderChestItems();
-        enderChestItems.forEach((key, value) ->
-            playerInvItems.merge(key, value, Integer::sum
-        ));
+        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.getEnderChestItems();
+        if (enderChestItems != null) {
+            enderChestItems.forEach((key, value) ->
+                playerInvItems.merge(key, value, Integer::sum
+            ));
+        }
     }
 
     @Inject(method = "updateAvailableCounts", at = @At(value = "INVOKE", target = "Ljava/util/List;iterator()Ljava/util/Iterator;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
@@ -46,9 +48,11 @@ public class MaterialListUtilsMixin {
             CallbackInfo ci,
             Object2IntOpenHashMap<ItemType> playerInvItems
     ) {
-        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.GetEnderChestItems();
-        enderChestItems.forEach((key, value) ->
-            playerInvItems.merge(key, value, Integer::sum
-        ));
+        Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.getEnderChestItems();
+        if (enderChestItems != null) {
+            enderChestItems.forEach((key, value) ->
+                playerInvItems.merge(key, value, Integer::sum
+            ));
+        }
     }
 }

@@ -41,7 +41,7 @@ public class EnderChestCache {
         }
     }
 
-    public static Object2IntOpenHashMap<ItemType> GetEnderChestItems() {
+    public static Object2IntOpenHashMap<ItemType> getEnderChestItems() {
         return enderChestItems;
     }
 
@@ -53,6 +53,12 @@ public class EnderChestCache {
         if (enderChestOpen) {
             enderChestOpen = false;
         }
+    }
+
+    public static void reset() {
+        enderChestOpen = false;
+        enderChestOpened = false;
+        enderChestItems = null;
     }
 
     /**
