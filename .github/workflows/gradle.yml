@@ -45,5 +45,5 @@ jobs:
 
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          modrinth-id: ktCc1lQm
+          modrinth-id: oBzw5QUs
           modrinth-token: "${{env.MODRINTH_TOKEN}}"
