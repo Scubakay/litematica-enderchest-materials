@@ -39,6 +39,7 @@ jobs:
       - name: Publish Github/Modrinth
         uses: Kir-Antipov/mc-publish@v3.2
         with:
+          version-type: alpha
           changelog-file: CHANGELOG.md
           java: "${{env.JAVA_VERSION}}"
 
