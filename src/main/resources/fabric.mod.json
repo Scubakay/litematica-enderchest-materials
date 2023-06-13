@@ -3,7 +3,7 @@
   "id": "litematica-enderchest-materials",
   "version": "${version}",
   "name": "Litematica Enderchest Materials",
-  "description": "",
+  "description": "An addon for Litematica that adds your Enderchest inventory to the material list.",
   "authors": [
     "Scubakay"
   ],
