@@ -6,7 +6,7 @@ Tired of having to completely fill your inventory while preparing for a build wi
 
 This is an addon for Litematica that adds your ender chest inventory to the material list availabilty. Just put everything you need in your ender chest and Litematica will show you everything you collected in your ender chest too!
 
-## It doesn't work?!
+## How does it work?
 
 To add the materials in your ender chest to the availability you need to open your ender chest at least once after entering a world or server. After that, it will update every time you add or remove something in your ender chest! This is because the Minecraft client normally does not have the ender chest inventory stored. 
 

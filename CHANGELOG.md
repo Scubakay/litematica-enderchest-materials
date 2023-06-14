@@ -1,1 +1,1 @@
-- First alpha version
+- Update to 1.20.1 using unofficial Masa mods: https://modrinth.com/modpack/kosmolot-unofficial-masa-mods
