@@ -24,8 +24,11 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "curse.maven:litematica-${project.litematica_minecraft_version}-308892:${project.litematica_fileid}"
-    modImplementation "curse.maven:malilib-${project.litematica_minecraft_version}-303119:${project.malilib_fileid}"
+//    modImplementation "curse.maven:litematica-${project.litematica_minecraft_version}-308892:${project.litematica_fileid}"
+//    modImplementation "curse.maven:malilib-${project.litematica_minecraft_version}-303119:${project.malilib_fileid}"
+
+    // Include non-official temp Masa builds: https://modrinth.com/modpack/kosmolot-unofficial-masa-mods
+    modImplementation fileTree(dir: 'libs', include: '*.jar')
 }
 
 processResources {
