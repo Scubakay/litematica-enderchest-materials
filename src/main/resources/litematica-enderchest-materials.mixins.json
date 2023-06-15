@@ -7,11 +7,12 @@
 
   ],
   "client": [
-    "MaterialListUtilsMixin",
-    "EnderChestBlockMixin",
+    "ClientLoginNetworkHandlerMixin",
+    "ClientPlayerInteractionManagerMixin",
     "ClientPlayNetworkHandlerMixin",
-    "ScreenMixin",
-    "ClientPlayerInteractionManagerMixin"
+    "EnderChestBlockMixin",
+    "MaterialListUtilsMixin",
+    "ScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
