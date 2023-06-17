@@ -1,1 +1,2 @@
 - Update to 1.20.1 using unofficial Masa mods: https://modrinth.com/modpack/kosmolot-unofficial-masa-mods
+- Hopefully fixed a bunch of dependency stuff, so we can actually build using mc-publish
