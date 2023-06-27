@@ -19,7 +19,7 @@ import java.util.List;
 
 @Mixin(MaterialListUtils.class)
 public class MaterialListUtilsMixin {
-    @Inject(method = "getMaterialList", at = @At(value = "INVOKE", target = "Lit/unimi/dsi/fastutil/objects/ObjectSet;iterator()Lit/unimi/dsi/fastutil/objects/ObjectIterator;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
+    @Inject(method = "getMaterialList", at = @At(value = "INVOKE", target = "Lfi/dy/masa/litematica/materials/MaterialListUtils;getInventoryItemCounts(Lnet/minecraft/inventory/Inventory;)Lit/unimi/dsi/fastutil/objects/Object2IntOpenHashMap;", shift = At.Shift.BY, by = 2), locals = LocalCapture.CAPTURE_FAILHARD)
     private static void addEnderchestItemCount(
             Object2IntOpenHashMap<BlockState> countsTotal,
             Object2IntOpenHashMap<BlockState> countsMissing,
@@ -35,9 +35,7 @@ public class MaterialListUtilsMixin {
     ) {
         Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.getEnderChestItems();
         if (enderChestItems != null) {
-            enderChestItems.forEach((key, value) ->
-                playerInvItems.merge(key, value, Integer::sum
-            ));
+            enderChestItems.forEach((key, value) -> playerInvItems.merge(key, (int) value, Integer::sum));
         }
     }
 
@@ -51,7 +49,7 @@ public class MaterialListUtilsMixin {
         Object2IntOpenHashMap<ItemType> enderChestItems = EnderChestCache.getEnderChestItems();
         if (enderChestItems != null) {
             enderChestItems.forEach((key, value) ->
-                playerInvItems.merge(key, value, Integer::sum
+                playerInvItems.merge(key, (int) value, Integer::sum
             ));
         }
     }
