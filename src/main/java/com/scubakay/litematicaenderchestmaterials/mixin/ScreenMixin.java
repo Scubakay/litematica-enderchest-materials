@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Screen.class)
 public class ScreenMixin {
     @Inject(method = "close", at = @At(value = "RETURN"))
-    public void close(CallbackInfo ci) {
+    public void injectClose(CallbackInfo ci) {
         EnderChestCache.closeEnderChest();
     }
 }

@@ -7,7 +7,6 @@
 
   ],
   "client": [
-    "ClientLoginNetworkHandlerMixin",
     "ClientPlayerInteractionManagerMixin",
     "ClientPlayNetworkHandlerMixin",
     "EnderChestBlockMixin",

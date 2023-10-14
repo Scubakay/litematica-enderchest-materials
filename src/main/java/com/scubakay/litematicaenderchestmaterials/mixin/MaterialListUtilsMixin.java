@@ -40,7 +40,7 @@ public class MaterialListUtilsMixin {
     }
 
     @Inject(method = "updateAvailableCounts", at = @At(value = "INVOKE", target = "Ljava/util/List;iterator()Ljava/util/Iterator;", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
-    private static void updateAvailableCounts(
+    private static void injectUpdateAvailableCounts(
             List<MaterialListEntry> list,
             PlayerEntity player,
             CallbackInfo ci,
