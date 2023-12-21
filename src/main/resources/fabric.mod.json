@@ -26,7 +26,7 @@
     "minecraft": "${minecraft_version}",
     "fabric-resource-loader-v0": "*",
     "fabric-networking-api-v1": "*",
-    "litematica": "0.16.*",
-    "malilib": "0.17.*"
+    "litematica": "0.17.*",
+    "malilib": "0.18.*"
   }
 }
