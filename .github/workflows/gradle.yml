@@ -36,14 +36,12 @@ jobs:
       - name: Build
         run: ./gradlew clean build
 
-      - name: Publish Github/Modrinth
+      - name: Publish Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           version-type: alpha
           changelog-file: CHANGELOG.md
           java: "${{env.JAVA_VERSION}}"
-
-          github-token: "${{env.GITHUB_TOKEN}}"
 
           modrinth-id: oBzw5QUs
           modrinth-token: "${{env.MODRINTH_TOKEN}}"
