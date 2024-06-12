@@ -1,1 +1,2 @@
-- Fix some warnings
+- Update to 1.20.6
+- Use unofficial Sakura Ryoko versions (Masa will not be porting Litematica etc to 1.20.5+ himself anymore)
