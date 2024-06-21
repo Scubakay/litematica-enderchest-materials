@@ -28,5 +28,10 @@
     "fabric-networking-api-v1": "*",
     "litematica": ">=${litematica_version}",
     "malilib": ">=${malilib_version}"
+  },
+  "custom": {
+    "mc-publish": {
+      "litematica": ">=${litematica_version}#(ignore:modrinth)"
+    }
   }
 }
