@@ -1,14 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "litematica-enderchest-materials",
+  "id": "${id}",
   "version": "${version}",
-  "name": "Litematica Enderchest Materials",
+  "name": "${name}",
   "description": "An addon for Litematica that adds your Enderchest inventory to the material list.",
   "authors": [
     "Scubakay"
   ],
   "contact": {
-    "repo": ""
+    "homepage": "https://modrinth.com/mod/litematica-enderchest-materials",
+    "sources": "https://github.com/Scubakay/litematica-enderchest-materials",
+    "issues": "https://github.com/Scubakay/litematica-enderchest-materials/issues"
   },
   "license": "MIT",
   "icon": "assets/litematica-enderchest-materials/icon.png",
@@ -22,11 +24,9 @@
     "litematica-enderchest-materials.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}",
-    "fabric-resource-loader-v0": "*",
-    "fabric-networking-api-v1": "*",
-    "litematica": ">=${litematica_version}",
-    "malilib": ">=${malilib_version}"
+    "fabricloader": ">=0.15",
+    "minecraft": "${mcdep}",
+    "litematica": ">=${litematica}",
+    "malilib": ">=${malilib}"
   }
 }
