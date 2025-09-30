@@ -24,7 +24,8 @@ class DevDependencies {
 val mod = ModData()
 val deps = ModDependencies()
 val dev = DevDependencies()
-val mcVersion = stonecutter.current.version
+val mcVersion = property("mod.mc_version").toString()
+val litematicaVersion = stonecutter.current.version
 val mcDep = property("mod.mc_dep").toString()
 val publish = property("mod.publish").toString().toBoolean()
 
@@ -97,16 +98,16 @@ tasks.processResources {
     inputs.property("name", mod.name)
     inputs.property("version", mod.version)
     inputs.property("mcdep", mcDep)
-    inputs.property("malilib", deps["malilib"])
-    inputs.property("litematica", deps["litematica"])
+    inputs.property("malilib_range", deps["malilib_range"])
+    inputs.property("litematica_range", deps["litematica_range"])
 
     val map = mapOf(
         "id" to mod.id,
         "name" to mod.name,
         "version" to mod.version,
         "mcdep" to mcDep,
-        "malilib" to deps["malilib"],
-        "litematica" to deps["litematica"]
+        "malilib_range" to deps["malilib_range"],
+        "litematica_range" to deps["litematica_range"]
     )
 
     filesMatching("fabric.mod.json") { expand(map) }
