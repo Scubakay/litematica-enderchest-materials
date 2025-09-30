@@ -24,7 +24,11 @@ public class EnderChestCache {
      */
     public static void handleInventoryS2CPacket(InventoryS2CPacket packet) {
         if (enderChestOpen && !enderChestOpened) {
-            List<ItemStack> enderChestItemStacks = packet.contents().subList(0, 27);
+            //? >=0.22.0 {
+            /*List<ItemStack> enderChestItemStacks = packet.contents().subList(0, 27);
+            *///?} else {
+            List<ItemStack> enderChestItemStacks = packet.getContents().subList(0, 27);
+            //?}
             enderChestItems = mapItemStacks(enderChestItemStacks);
             enderChestOpened = true;
         }
