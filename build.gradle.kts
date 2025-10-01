@@ -24,8 +24,7 @@ class DevDependencies {
 val mod = ModData()
 val deps = ModDependencies()
 val dev = DevDependencies()
-val mcVersion = property("mod.mc_version").toString()
-val litematicaVersion = stonecutter.current.version
+val mcVersion = stonecutter.current.version
 val mcDep = property("mod.mc_dep").toString()
 val publish = property("mod.publish").toString().toBoolean()
 
