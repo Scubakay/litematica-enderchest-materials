@@ -15,14 +15,6 @@
   "license": "MIT",
   "icon": "assets/litematica-enderchest-materials/icon.png",
   "environment": "client",
-  "entrypoints": {
-    "client": [
-      "com.scubakay.litematicaenderchestmaterials.LitematicaEnderchestMaterials"
-    ]
-  },
-  "mixins": [
-    "litematica-enderchest-materials.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.15",
     "minecraft": "${mcdep}",
