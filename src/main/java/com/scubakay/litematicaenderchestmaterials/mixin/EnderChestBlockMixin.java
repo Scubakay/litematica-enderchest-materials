@@ -13,10 +13,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+//? <1.20.6 {
+import net.minecraft.util.Hand;
+//? }
+
 @Mixin(EnderChestBlock.class)
 public class EnderChestBlockMixin {
     @Inject(method = "onUse", at = @At(value = "HEAD"))
-    protected void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        EnderChestCache.openEnderChest();
+    //? >=1.20.6 {
+    /*protected void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    *///?} else {
+    public void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    //?}
+            EnderChestCache.openEnderChest();
     }
 }

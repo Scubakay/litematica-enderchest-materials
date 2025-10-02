@@ -3,6 +3,9 @@ plugins {
     id("fabric-loom")
     //id("dev.kikugie.j52j")
     id("me.modmuss50.mod-publish-plugin")
+    kotlin("jvm") version "2.2.10"
+    id("com.google.devtools.ksp") version "2.2.10-2.0.2"
+    id("dev.kikugie.fletching-table.fabric") version "0.1.0-alpha.17"
 }
 
 class ModData {
@@ -17,13 +20,13 @@ class ModDependencies {
     operator fun get(name: String) = property("deps.$name").toString()
 }
 
-class DevDependencies {
-    operator fun get(name: String) = property("dev.$name").toString()
-}
+//class DevDependencies {
+//    operator fun get(name: String) = property("dev.$name").toString()
+//}
 
 val mod = ModData()
 val deps = ModDependencies()
-val dev = DevDependencies()
+// val dev = DevDependencies()
 val mcVersion = stonecutter.current.version
 val mcDep = property("mod.mc_dep").toString()
 val publish = property("mod.publish").toString().toBoolean()
@@ -37,6 +40,12 @@ loom {
         create("template") {
             sourceSet(sourceSets["main"])
         }
+    }
+}
+
+fletchingTable {
+    mixins.register("main") {
+        mixin("default", "${mod.id}.mixins.json")
     }
 }
 
@@ -97,16 +106,16 @@ tasks.processResources {
     inputs.property("name", mod.name)
     inputs.property("version", mod.version)
     inputs.property("mcdep", mcDep)
-    inputs.property("malilib", deps["malilib"])
-    inputs.property("litematica", deps["litematica"])
+    inputs.property("malilib_range", deps["malilib_range"])
+    inputs.property("litematica_range", deps["litematica_range"])
 
     val map = mapOf(
         "id" to mod.id,
         "name" to mod.name,
         "version" to mod.version,
         "mcdep" to mcDep,
-        "malilib" to deps["malilib"],
-        "litematica" to deps["litematica"]
+        "malilib_range" to deps["malilib_range"],
+        "litematica_range" to deps["litematica_range"]
     )
 
     filesMatching("fabric.mod.json") { expand(map) }
