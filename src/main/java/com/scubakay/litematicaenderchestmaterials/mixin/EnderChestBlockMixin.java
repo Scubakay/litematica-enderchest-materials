@@ -14,17 +14,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 //? <1.20.6 {
-import net.minecraft.util.Hand;
-//? }
+/*import net.minecraft.util.Hand;
+*///?}
 
+@SuppressWarnings("unused")
 @Mixin(EnderChestBlock.class)
 public class EnderChestBlockMixin {
     @Inject(method = "onUse", at = @At(value = "HEAD"))
     //? >=1.20.6 {
-    /*protected void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-    *///?} else {
-    public void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-    //?}
+    protected void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    //?} else {
+    /*public void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+    *///?}
             EnderChestCache.openEnderChest();
     }
 }
